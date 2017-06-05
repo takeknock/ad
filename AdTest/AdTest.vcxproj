@@ -118,10 +118,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CalculationTreeTest.h" />
+    <ClInclude Include="ComputationalGraphTest.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CalculationTreeTest.cpp" />
+    <ClCompile Include="ComputationalGraphTest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
