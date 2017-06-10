@@ -5,7 +5,6 @@
 namespace adtest
 {
     TEST_F(ComputationalGraphTest, add_test) {
-        ad::ComputationalGraph tree = ad::ComputationalGraph();
         
     }
 

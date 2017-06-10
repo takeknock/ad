@@ -7,7 +7,7 @@ namespace ad
     class Node : public INode {
     public:
         Node(const IOperators& op, const INode& lchild, const INode& rchild);
-        void setDerivative(double derivative);s
+        void setDerivative(double derivative);
 
     private:
         const IOperators& _op;
