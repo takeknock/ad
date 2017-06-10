@@ -2,6 +2,17 @@
 
 namespace ad
 {
+    Aad::Aad() 
+    {
+
+    }
+
+    EXPORT_API Aad::Aad(double x) 
+    :_value(x)
+    {
+
+    }
+
     const Aad& Aad::operator =(const Aad& rhs) const
     {
         if (this == &rhs)
