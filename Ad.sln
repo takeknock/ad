@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ad", "Ad\Ad.vcxproj", "{28F387DA-94B4-479C-95EE-3989566A5FA6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AdTest", "AdTest\AdTest.vcxproj", "{888A95BC-307C-48EF-A5CB-AC885F3C4CB9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{28F387DA-94B4-479C-95EE-3989566A5FA6} = {28F387DA-94B4-479C-95EE-3989566A5FA6}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -82,6 +82,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>EXPORT_DLL;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,12 +113,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Aad.h" />
     <ClInclude Include="ComputationalGraph.h" />
     <ClInclude Include="Constant.h" />
+    <ClInclude Include="fwd.h" />
     <ClInclude Include="INode.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="operators.h" />
     <ClInclude Include="Variable.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Aad.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
