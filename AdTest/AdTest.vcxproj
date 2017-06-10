@@ -118,9 +118,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AadTest.h" />
     <ClInclude Include="ComputationalGraphTest.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AadTest.cpp" />
     <ClCompile Include="ComputationalGraphTest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
