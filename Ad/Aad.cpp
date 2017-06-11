@@ -79,4 +79,10 @@ namespace ad
         return *this;
     }
 
+    const double Aad::value() const
+    {
+        return _value;
+    }
+
+
 }

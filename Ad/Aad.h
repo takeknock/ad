@@ -21,7 +21,7 @@ namespace ad
         const Aad& operator =(const Aad& other) const;
         const Aad& operator =(Aad&& other) const;
 
-        const Aad& operator +(const Aad& rhs) const;
+        EXPORT_API const Aad& operator +(const Aad& rhs) const;
         const Aad& operator -(const Aad& rhs) const;
         const Aad& operator *(const Aad& rhs) const;
         const Aad& operator /(const Aad& rhs) const;
@@ -30,6 +30,8 @@ namespace ad
         const Aad& operator-=(const Aad& rhs) const;
         const Aad& operator*=(const Aad& rhs) const;
         const Aad& operator/=(const Aad& rhs) const;
+
+        EXPORT_API const double value() const;
 
     private:
         double _value;
