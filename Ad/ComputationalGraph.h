@@ -17,4 +17,4 @@ namespace ad
     private:
         INode& _top();
     };
-}
+} // namespace ad

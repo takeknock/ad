@@ -20,6 +20,4 @@ namespace ad {
     {
 
     }
-
-
 } // namespace ad 

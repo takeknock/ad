@@ -8,5 +8,4 @@ namespace ad
         Constant(const double value);
 
     };
-
-}
+} // namespace ad

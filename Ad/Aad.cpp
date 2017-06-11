@@ -2,42 +2,41 @@
 
 namespace ad
 {
+    // constructors
     Aad::Aad() 
     {
+    }
 
+    Aad::Aad(double x)
+        :_value(x)
+    {
     }
 
     Aad::Aad(const Aad& other)
     {
-
     }
 
     Aad::Aad(Aad&& other)
     {
-
     }
 
-    const Aad& Aad::operator =(Aad&& other) const
+    // operator equals
+    const Aad& Aad::operator =(const Aad& other) const
     {
-        return *this;
-    }
-
-
-
-    EXPORT_API Aad::Aad(double x) 
-    :_value(x)
-    {
-
-    }
-
-    const Aad& Aad::operator =(const Aad& rhs) const
-    {
-        if (this == &rhs)
+        if (this == &other)
             return *this;
         
         return *this;
     }
 
+    const Aad& Aad::operator =(Aad&& other) const
+    {
+        if (this == &other)
+            return *this;
+        return *this;
+    }
+
+    // unary operators
     const Aad& Aad::operator +(const Aad& rhs) const
     {
         return *this;
@@ -79,6 +78,7 @@ namespace ad
         return *this;
     }
 
+    // methods
     const double Aad::value() const
     {
         return _value;
@@ -89,4 +89,4 @@ namespace ad
         return _derivative;
     }
 
-}
+} // namespace ad

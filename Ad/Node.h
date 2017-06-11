@@ -16,4 +16,4 @@ namespace ad
         double derivative;
 
     };
-}
+} // namespace ad

@@ -10,4 +10,4 @@ namespace ad
     static struct op_mul : public IOperators {};
     static struct op_div : public IOperators {};
 
-}
+} // namespace ad

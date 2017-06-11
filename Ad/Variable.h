@@ -7,10 +7,9 @@ namespace ad {
         Variable(double x)
         :_x(x)
         {
-
         }
 
     private:
         const double _x;
     };
-}
+} // namespace ad
