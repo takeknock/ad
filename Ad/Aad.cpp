@@ -84,5 +84,9 @@ namespace ad
         return _value;
     }
 
+    const double Aad::getDerivative(const Aad& from) const
+    {
+        return _derivative;
+    }
 
 }
