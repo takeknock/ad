@@ -21,15 +21,14 @@ namespace ad
     }
 
     // operator equals
-    const Aad& Aad::operator =(const Aad& other) const
+    const Aad& Aad::operator =(const Aad& other)
     {
         if (this == &other)
             return *this;
-        
         return *this;
     }
 
-    const Aad& Aad::operator =(Aad&& other) const
+    const Aad& Aad::operator =(Aad&& other)
     {
         if (this == &other)
             return *this;
