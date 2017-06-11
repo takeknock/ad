@@ -7,6 +7,18 @@ namespace ad
 
     }
 
+    Aad::Aad(const Aad& other)
+    {
+
+    }
+
+    Aad::Aad(Aad&& other)
+    {
+
+    }
+
+
+
     EXPORT_API Aad::Aad(double x) 
     :_value(x)
     {

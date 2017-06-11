@@ -9,8 +9,8 @@ namespace ad
         EXPORT_API Aad();
         EXPORT_API Aad(double x);
 
-        EXPORT_API Aad(Aad& rhs);
-        EXPORT_API Aad(Aad&& rhs);
+        EXPORT_API Aad(const Aad& other);
+        EXPORT_API Aad(Aad&& other);
 
         const Aad& operator =(const Aad& rhs) const;
         const Aad& operator +(const Aad& rhs) const;
