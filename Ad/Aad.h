@@ -1,6 +1,12 @@
 #pragma once
-#include "fwd.h"
+
 #include "Ad/ComputationalGraph.h"
+
+#include <memory>
+
+#include "fwd.h"
+
+
 
 namespace ad
 {
@@ -28,6 +34,6 @@ namespace ad
     private:
         double _value;
         double _div;
-        ComputationalGraph _tree;
+        std::shared_ptr<ComputationalGraph> _tree;
     };
 }
