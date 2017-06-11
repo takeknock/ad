@@ -1,6 +1,8 @@
+#include <gtest/gtest.h>
+
 #include "Ad/Aad.h"
 
-int main() {
+int main(int argc, char **argv) {
     //ad::ComputationalGraph tree = ad::ComputationalGraph();
     //
     //// x^2 + l*x - m*n(m*n + o)
@@ -41,6 +43,9 @@ int main() {
 
     //tree.setup();
     //const double derivative = tree.getDerivative(x);
+
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 
     return 0;
 }
