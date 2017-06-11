@@ -22,9 +22,9 @@ namespace ad
         const Aad& operator =(Aad&& other) const;
 
         EXPORT_API const Aad& operator +(const Aad& rhs) const;
-        const Aad& operator -(const Aad& rhs) const;
-        const Aad& operator *(const Aad& rhs) const;
-        const Aad& operator /(const Aad& rhs) const;
+        EXPORT_API const Aad& operator -(const Aad& rhs) const;
+        EXPORT_API const Aad& operator *(const Aad& rhs) const;
+        EXPORT_API const Aad& operator /(const Aad& rhs) const;
 
         const Aad& operator+=(const Aad& rhs) const;
         const Aad& operator-=(const Aad& rhs) const;
