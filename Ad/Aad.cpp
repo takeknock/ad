@@ -17,6 +17,11 @@ namespace ad
 
     }
 
+    const Aad& Aad::operator =(Aad&& other) const
+    {
+
+    }
+
 
 
     EXPORT_API Aad::Aad(double x) 
