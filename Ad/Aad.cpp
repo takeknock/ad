@@ -19,7 +19,7 @@ namespace ad
 
     const Aad& Aad::operator =(Aad&& other) const
     {
-
+        return *this;
     }
 
 
