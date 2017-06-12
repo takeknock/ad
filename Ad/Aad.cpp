@@ -18,10 +18,23 @@ namespace ad
 
     Aad::Aad(const Aad& other)
     {
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
+        tmp = other._tree;
+        std::swap(_tree, tmp);
+
+        _value = other._value;
+        _derivative = other._derivative;
     }
 
     Aad::Aad(Aad&& other)
     {
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
+        tmp = other._tree;
+        std::swap(_tree, tmp);
+
+        _value = other._value;
+        _derivative = other._derivative;
+
     }
 
     // operator equals
@@ -52,23 +65,23 @@ namespace ad
     const Aad& Aad::operator +(const Aad& rhs) const
     {
         
-        return *this;
+        return Aad(*this) += rhs;
     }
 
     const Aad& Aad::operator -(const Aad& rhs) const
     {
-        return *this;
+        return Aad(*this) -= rhs;
     }
 
     const Aad& Aad::operator *(const Aad& rhs) const
     {
-        return *this;
+        return Aad(*this) *= rhs;
 
     }
 
     const Aad& Aad::operator /(const Aad& rhs) const
     {
-        return *this;
+        return Aad(*this) /= rhs;
     }
 
     const Aad& Aad::operator+=(const Aad& rhs)
