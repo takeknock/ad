@@ -48,25 +48,35 @@ namespace ad
     }
 
     // unary operators
-    const Aad Aad::operator +(const Aad& rhs) const
+    const Aad Aad::operator +(const Aad& rhs)
     {
-        
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
+        std::swap(tmp, _tree);
+
         return Aad(*this) += rhs;
     }
 
-    const Aad Aad::operator -(const Aad& rhs) const
+    const Aad Aad::operator -(const Aad& rhs)
     {
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
+        std::swap(tmp, _tree);
+
         return Aad(*this) -= rhs;
     }
 
-    const Aad Aad::operator *(const Aad& rhs) const
+    const Aad Aad::operator *(const Aad& rhs)
     {
-        return Aad(*this) *= rhs;
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
+        std::swap(tmp, _tree);
 
+        return Aad(*this) *= rhs;
     }
 
-    const Aad Aad::operator /(const Aad& rhs) const
+    const Aad Aad::operator /(const Aad& rhs)
     {
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
+        std::swap(tmp, _tree);
+
         return Aad(*this) /= rhs;
     }
 
@@ -75,8 +85,6 @@ namespace ad
         _value = _value + rhs._value;
         _derivative = _derivative + rhs._derivative;
 
-        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
-        std::swap(tmp, _tree);
         return *this;
     }
 
@@ -85,8 +93,6 @@ namespace ad
         _value = _value - rhs._value;
         _derivative = _derivative - rhs._derivative;
 
-        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
-        std::swap(tmp, _tree);
         return *this;
     }
 
@@ -95,8 +101,6 @@ namespace ad
         _value = _value * rhs._value;
         _derivative = _derivative * rhs._value + _value * rhs._derivative;
 
-        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
-        std::swap(tmp, _tree);
         return *this;
     }
 
@@ -105,8 +109,6 @@ namespace ad
         _value = _value / rhs._value;
         _derivative = (_derivative * rhs._value - _value * rhs._derivative) / (rhs._value * rhs._value);
 
-        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
-        std::swap(tmp, _tree);
         return *this;
     }
 
