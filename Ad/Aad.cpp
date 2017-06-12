@@ -6,13 +6,12 @@
 namespace ad
 {
     // constructors
-    Aad::Aad() 
-    :_derivative(1.0)
+    Aad::Aad()
     {
     }
 
     Aad::Aad(double x)
-    :_value(x), _derivative(1.0)
+    :_value(x)
     {
     }
 

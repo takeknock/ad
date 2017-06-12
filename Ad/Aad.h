@@ -4,11 +4,10 @@
 #include <memory>
 
 // own include
-#include "fwd.h"
+#include "Ad/fwd.h"
 #include "Ad/ComputationalGraph.h"
 
-namespace ad
-{
+namespace ad {
     class Aad {
     public:
         // constructors

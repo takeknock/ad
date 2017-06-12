@@ -2,8 +2,7 @@
 #include "INode.h"
 #include "operators.h"
 
-namespace ad
-{
+namespace ad {
     class Node : public INode {
     public:
         Node(const IOperators& op, const INode& lchild, const INode& rchild);
