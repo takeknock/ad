@@ -18,8 +18,8 @@ namespace ad
         EXPORT_API Aad(Aad&& other);
 
         // operator equals
-        const Aad& operator =(const Aad& other);
-        const Aad& operator =(Aad&& other);
+        EXPORT_API const Aad& operator =(const Aad& other);
+        EXPORT_API const Aad& operator =(Aad&& other);
 
         // unary operators
         const Aad& operator+=(const Aad& rhs);
@@ -27,10 +27,10 @@ namespace ad
         const Aad& operator*=(const Aad& rhs);
         const Aad& operator/=(const Aad& rhs);
 
-        EXPORT_API const Aad& operator +(const Aad& rhs) const;
-        EXPORT_API const Aad& operator -(const Aad& rhs) const;
-        EXPORT_API const Aad& operator *(const Aad& rhs) const;
-        EXPORT_API const Aad& operator /(const Aad& rhs) const;
+        EXPORT_API const Aad operator +(const Aad& rhs) const;
+        EXPORT_API const Aad operator -(const Aad& rhs) const;
+        EXPORT_API const Aad operator *(const Aad& rhs) const;
+        EXPORT_API const Aad operator /(const Aad& rhs) const;
 
         // methods
         EXPORT_API const double value() const;
