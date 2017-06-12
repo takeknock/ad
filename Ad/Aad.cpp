@@ -1,5 +1,8 @@
 #include "Aad.h"
 
+#include <utility>
+
+
 namespace ad
 {
     // constructors
@@ -23,15 +26,24 @@ namespace ad
     // operator equals
     const Aad& Aad::operator =(const Aad& other)
     {
-        if (this == &other)
-            return *this;
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph());
+        tmp = other._tree;
+        std::swap(_tree, tmp);
+
+        _value = other._value;
+        _derivative = other._derivative;
+
         return *this;
     }
 
     const Aad& Aad::operator =(Aad&& other)
     {
-        if (this == &other)
-            return *this;
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph());
+        tmp = other._tree;
+        std::swap(_tree, tmp);
+
+        _value = other._value;
+        _derivative = other._derivative;
         return *this;
     }
 
