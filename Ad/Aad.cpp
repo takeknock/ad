@@ -69,23 +69,43 @@ namespace ad
         return *this;
     }
 
-    const Aad& Aad::operator+=(const Aad& rhs) const
+    const Aad& Aad::operator+=(const Aad& rhs)
     {
+        _value = _value + rhs._value;
+        _derivative = _derivative + rhs._derivative;
+
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
+        std::swap(tmp, _tree);
         return *this;
     }
 
-    const Aad& Aad::operator-=(const Aad& rhs) const
+    const Aad& Aad::operator-=(const Aad& rhs)
     {
+        _value = _value - rhs._value;
+        _derivative = _derivative - rhs._derivative;
+
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
+        std::swap(tmp, _tree);
         return *this;
     }
 
-    const Aad& Aad::operator*=(const Aad& rhs) const
+    const Aad& Aad::operator*=(const Aad& rhs)
     {
+        _value = _value * rhs._value;
+        _derivative = _derivative * rhs._value + _value * rhs._derivative;
+
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
+        std::swap(tmp, _tree);
         return *this;
     }
 
-    const Aad& Aad::operator/=(const Aad& rhs) const
+    const Aad& Aad::operator/=(const Aad& rhs)
     {
+        _value = _value / rhs._value;
+        _derivative = (_derivative * rhs._value - _value * rhs._derivative) / (rhs._value * rhs._value);
+
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
+        std::swap(tmp, _tree);
         return *this;
     }
 
