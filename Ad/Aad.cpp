@@ -26,7 +26,7 @@ namespace ad
     // operator equals
     const Aad& Aad::operator =(const Aad& other)
     {
-        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph());
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
         tmp = other._tree;
         std::swap(_tree, tmp);
 
@@ -38,7 +38,7 @@ namespace ad
 
     const Aad& Aad::operator =(Aad&& other)
     {
-        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph());
+        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
         tmp = other._tree;
         std::swap(_tree, tmp);
 
