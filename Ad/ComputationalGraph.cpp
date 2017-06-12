@@ -4,19 +4,11 @@ namespace ad {
     ComputationalGraph::ComputationalGraph() 
     {
     }
-    ComputationalGraph::ComputationalGraph(const INode& node)
-    {
-
-    }
-    void ComputationalGraph::setup()
-    {
-
-    }
-    const double ComputationalGraph::getDerivative(const INode& x)
+    const double ComputationalGraph::getDerivative(const Aad& from)
     {
         return 0.0;
     }
-    void ComputationalGraph::add(const INode& x)
+    void ComputationalGraph::add(const Aad& x)
     {
 
     }

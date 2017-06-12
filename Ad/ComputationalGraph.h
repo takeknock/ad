@@ -9,11 +9,9 @@ namespace ad
     class ComputationalGraph {
     public:
         EXPORT_API ComputationalGraph();
-        EXPORT_API ComputationalGraph(const INode& top);
         
-        void setup();
-        const double getDerivative(const INode& x);
-        void add(const INode& child);
+        const double getDerivative(const Aad& from);
+        void add(const Aad& child);
     private:
         INode& _top();
     };

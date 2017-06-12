@@ -5,3 +5,7 @@
 #else
 #define EXPORT_API __declspec(dllimport)
 #endif
+
+namespace ad {
+    class Aad;
+} // namespace ad
