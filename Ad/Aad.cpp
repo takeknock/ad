@@ -7,11 +7,12 @@ namespace ad
 {
     // constructors
     Aad::Aad() 
+    :_derivative(1.0)
     {
     }
 
     Aad::Aad(double x)
-        :_value(x)
+    :_value(x), _derivative(1.0)
     {
     }
 
@@ -50,6 +51,7 @@ namespace ad
     // unary operators
     const Aad& Aad::operator +(const Aad& rhs) const
     {
+        
         return *this;
     }
 
