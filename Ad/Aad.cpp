@@ -11,7 +11,7 @@ namespace ad
     }
 
     Aad::Aad(double x)
-    :_value(x)
+        :_value(x)
     {
     }
 
@@ -53,10 +53,12 @@ namespace ad
         Aad parent = Aad();
         parent._tree->addLeft(std::shared_ptr<Aad>(this));
         parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+        //parent._tree->addLeft(*this);
+        //parent._tree->addRight(rhs);
 
         parent._value = _value + rhs._value;
         parent._derivative = _derivative + rhs._derivative;
-        
+
         return parent;
     }
 
@@ -65,6 +67,8 @@ namespace ad
         Aad parent = Aad();
         parent._tree->addLeft(std::shared_ptr<Aad>(this));
         parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+        //parent._tree->addLeft(*this);
+        //parent._tree->addRight(rhs);
 
         parent._value = _value - rhs._value;
         parent._derivative = _derivative - rhs._derivative;
@@ -79,6 +83,8 @@ namespace ad
         Aad parent = Aad();
         parent._tree->addLeft(std::shared_ptr<Aad>(this));
         parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+        //parent._tree->addLeft(*this);
+        //parent._tree->addRight(rhs);
 
         parent._value = _value * rhs._value;
         parent._derivative = _derivative * rhs._value + _value * rhs._derivative;
@@ -91,6 +97,8 @@ namespace ad
         Aad parent = Aad();
         parent._tree->addLeft(std::shared_ptr<Aad>(this));
         parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+        //parent._tree->addLeft(*this);
+        //parent._tree->addRight(rhs);
 
         //const std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
         //std::swap(tmp, rhs._tree);
@@ -143,6 +151,6 @@ namespace ad
         return _derivative;
     }
 
-    
+
 
 } // namespace ad
