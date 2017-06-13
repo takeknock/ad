@@ -50,34 +50,54 @@ namespace ad
     // unary operators
     const Aad Aad::operator +(const Aad& rhs)
     {
-        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
-        std::swap(tmp, _tree);
+        Aad parent = Aad();
+        parent._tree->addLeft(std::shared_ptr<Aad>(this));
+        parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
 
-        return Aad(*this) += rhs;
+        parent._value = _value + rhs._value;
+        parent._derivative = _derivative + rhs._derivative;
+        
+        return parent;
     }
 
     const Aad Aad::operator -(const Aad& rhs)
     {
-        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
-        std::swap(tmp, _tree);
+        Aad parent = Aad();
+        parent._tree->addLeft(std::shared_ptr<Aad>(this));
+        parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
 
-        return Aad(*this) -= rhs;
+        parent._value = _value - rhs._value;
+        parent._derivative = _derivative - rhs._derivative;
+
+        return parent;
     }
 
     const Aad Aad::operator *(const Aad& rhs)
     {
-        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
-        std::swap(tmp, _tree);
+        //std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
+        //std::swap(tmp, _tree);
+        Aad parent = Aad();
+        parent._tree->addLeft(std::shared_ptr<Aad>(this));
+        parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
 
-        return Aad(*this) *= rhs;
+        parent._value = _value * rhs._value;
+        parent._derivative = _derivative * rhs._value + _value * rhs._derivative;
+
+        return parent;
     }
 
     const Aad Aad::operator /(const Aad& rhs)
     {
-        std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
-        std::swap(tmp, _tree);
+        Aad parent = Aad();
+        parent._tree->addLeft(std::shared_ptr<Aad>(this));
+        parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
 
-        return Aad(*this) /= rhs;
+        //const std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
+        //std::swap(tmp, rhs._tree);
+        parent._value = _value / rhs._value;
+        parent._derivative = (_derivative * rhs._value - _value * rhs._derivative) / (rhs._value * rhs._value);
+
+        return parent;
     }
 
     const Aad& Aad::operator+=(const Aad& rhs)
@@ -122,5 +142,7 @@ namespace ad
     {
         return _derivative;
     }
+
+    
 
 } // namespace ad
