@@ -11,10 +11,10 @@ namespace ad {
     class Aad {
     public:
         // constructors
-        EXPORT_API Aad();
-        EXPORT_API Aad(double x);
-        EXPORT_API Aad(const Aad& other);
-        EXPORT_API Aad(Aad&& other);
+        EXPORT_API explicit Aad();
+        EXPORT_API explicit Aad(double x);
+        EXPORT_API explicit Aad(const Aad& other);
+        EXPORT_API explicit Aad(Aad&& other);
 
         // operator equals
         EXPORT_API const Aad& operator =(const Aad& other);
@@ -39,6 +39,6 @@ namespace ad {
     private:
         double _value;
         double _derivative;
-        std::shared_ptr<ComputationalGraph> _tree;
+        std::shared_ptr<ComputationalGraph> _tree = std::shared_ptr<ComputationalGraph>();
     };
 } // namespace ad
