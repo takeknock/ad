@@ -48,6 +48,7 @@ namespace ad {
         EXPORT_API const double getDerivative(const Aad& from) const;
 
         EXPORT_API ~Aad() {}
+
     private:
         double _value;
         double _derivative;
