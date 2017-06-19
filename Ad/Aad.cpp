@@ -2,6 +2,7 @@
 
 #include <utility>
 
+#include "Ad/functions.h"
 
 namespace ad
 {
@@ -218,6 +219,9 @@ namespace ad
 
     const double Aad::getDerivative(const Aad& from) const
     {
+        dfs(_tree);
+        _tree->setDerivative(1.0);
+        rdfs(_tree);
         return _derivative;
     }
 
