@@ -7,11 +7,12 @@ namespace ad
 {
     // constructors
     Aad::Aad()
+    :_value(0.0), _derivative(0.0), _tree(std::shared_ptr<ComputationalGraph>())
     {
     }
 
     Aad::Aad(double value)
-    :_value(value), _derivative(0.0)
+    :_value(value), _derivative(0.0), _tree(std::shared_ptr<ComputationalGraph>())
     {
     }
 

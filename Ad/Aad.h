@@ -52,6 +52,6 @@ namespace ad {
     private:
         double _value;
         double _derivative;
-        std::shared_ptr<ComputationalGraph> _tree = std::shared_ptr<ComputationalGraph>();
+        std::shared_ptr<ComputationalGraph> _tree;
     };
 } // namespace ad
