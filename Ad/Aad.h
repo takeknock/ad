@@ -12,7 +12,7 @@ namespace ad {
     public:
         // constructors
         EXPORT_API explicit Aad();
-        EXPORT_API explicit Aad(double x);
+        EXPORT_API explicit Aad(double value);
         EXPORT_API Aad(Aad& other);
         EXPORT_API Aad(Aad&& other);
 
@@ -30,6 +30,18 @@ namespace ad {
         EXPORT_API Aad& operator -(const Aad& rhs);
         EXPORT_API Aad& operator *(const Aad& rhs);
         EXPORT_API Aad& operator /(const Aad& rhs);
+
+        // unary operators with double
+        Aad& operator+=(double x);
+        Aad& operator-=(double x);
+        Aad& operator*=(double x);
+        Aad& operator/=(double x);
+
+        EXPORT_API Aad& operator +(double x);
+        EXPORT_API Aad& operator -(double x);
+        EXPORT_API Aad& operator *(double x);
+        EXPORT_API Aad& operator /(double x);
+
 
         // methods
         EXPORT_API const double value() const;

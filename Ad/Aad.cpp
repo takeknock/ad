@@ -10,8 +10,8 @@ namespace ad
     {
     }
 
-    Aad::Aad(double x)
-    :_value(x)
+    Aad::Aad(double value)
+    :_value(value), _derivative(0.0)
     {
     }
 
@@ -153,6 +153,54 @@ namespace ad
         _value = _value / rhs._value;
         _derivative = (_derivative * rhs._value - _value * rhs._derivative) / (rhs._value * rhs._value);
 
+        return *this;
+    }
+
+    // unary operators with double
+    Aad& Aad::operator+=(double x)
+    {
+        _value = _value + x;
+        return *this;
+    }
+    Aad& Aad::operator-=(double x)
+    {
+        _value = _value - x;
+        return *this;
+    }
+
+    Aad& Aad::operator*=(double x)
+    {
+        _value = _value * x;
+        return *this;
+    }
+
+    Aad& Aad::operator/=(double x)
+    {
+        _value = _value - x;
+        return *this;
+    }
+
+    Aad& Aad::operator +(double x)
+    {
+        *this += x;
+        return *this;
+    }
+
+    Aad& Aad::operator -(double x)
+    {
+        *this -= x;
+        return *this;
+    }
+
+    Aad& Aad::operator *(double x)
+    {
+        *this *= x;
+        return *this;
+    }
+
+    Aad& Aad::operator /(double x)
+    {
+        *this /= x;
         return *this;
     }
 
