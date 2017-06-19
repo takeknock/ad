@@ -19,6 +19,7 @@ namespace ad
         //void addLeft(const std::shared_ptr<Aad> child);
         //void addRight(const Aad& child);
         //void addLeft(const Aad& child);
+        EXPORT_API void setDerivative(double derivative);
 
     private:
         std::shared_ptr<ComputationalGraph> _left;

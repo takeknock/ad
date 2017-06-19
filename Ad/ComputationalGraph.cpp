@@ -25,6 +25,12 @@ namespace ad {
     {
         return 0.0;
     }
+
+    void ComputationalGraph::setDerivative(double derivative)
+    {
+        _derivative = derivative;
+    }
+
     //void ComputationalGraph::addRight(const std::shared_ptr<Aad> x)
     //{
     //    _right = x;
