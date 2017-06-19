@@ -116,6 +116,7 @@
     <ClInclude Include="Aad.h" />
     <ClInclude Include="ComputationalGraph.h" />
     <ClInclude Include="Constant.h" />
+    <ClInclude Include="functions.h" />
     <ClInclude Include="fwd.h" />
     <ClInclude Include="INode.h" />
     <ClInclude Include="Node.h" />
@@ -125,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="Aad.cpp" />
     <ClCompile Include="ComputationalGraph.cpp" />
+    <ClCompile Include="functions.cpp" />
     <ClCompile Include="operators.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
