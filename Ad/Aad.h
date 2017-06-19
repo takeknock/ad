@@ -15,6 +15,7 @@ namespace ad {
         EXPORT_API explicit Aad(double value);
         EXPORT_API Aad(Aad& other);
         EXPORT_API Aad(Aad&& other);
+        EXPORT_API Aad(std::shared_ptr<ComputationalGraph> tree);
 
         // operator equals
         EXPORT_API Aad& operator =(const Aad& other);

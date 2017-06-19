@@ -16,6 +16,11 @@ namespace ad
     {
     }
 
+    Aad::Aad(std::shared_ptr<ComputationalGraph> tree)
+    :_tree(tree)
+    {
+    }
+
     Aad::Aad(Aad& other)
     {
         _tree = other._tree;
