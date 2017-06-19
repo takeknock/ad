@@ -9,6 +9,18 @@ namespace ad {
     {
     }
 
+    ComputationalGraph::ComputationalGraph(
+        double value,
+        double derivative,
+        std::shared_ptr<ComputationalGraph> left,
+        std::shared_ptr<ComputationalGraph> right)
+    :_value(value),
+     _derivative(derivative),
+     _left(left),
+     _right(right)
+    {   
+    }
+
     const double ComputationalGraph::getDerivative(const Aad& from)
     {
         return 0.0;
