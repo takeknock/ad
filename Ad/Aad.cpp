@@ -17,12 +17,16 @@ namespace ad
 
     Aad::Aad(const Aad& other)
     {
-        *this = other;
+        _tree = other._tree;
+        _value = other._value;
+        _derivative = other._derivative;
     }
 
     Aad::Aad(Aad&& other)
     {
-        *this = other;
+        _tree = other._tree;
+        _value = other._value;
+        _derivative = other._derivative;
     }
 
     // operator equals
@@ -50,62 +54,74 @@ namespace ad
     // unary operators
     const Aad Aad::operator +(const Aad& rhs)
     {
-        Aad parent = Aad();
-        parent._tree->addLeft(std::shared_ptr<Aad>(this));
-        parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+        //Aad parent = Aad();
+        //parent._tree->addLeft(std::shared_ptr<Aad>(this));
+        //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
         //parent._tree->addLeft(*this);
         //parent._tree->addRight(rhs);
 
-        parent._value = _value + rhs._value;
-        parent._derivative = _derivative + rhs._derivative;
+        //parent._value = _value + rhs._value;
+        //parent._derivative = _derivative + rhs._derivative;
 
-        return parent;
+        //_value = _value + rhs._value;
+        //_derivative = _derivative + rhs._derivative;
+
+        *this += rhs;
+        return *this;
     }
 
     const Aad Aad::operator -(const Aad& rhs)
     {
-        Aad parent = Aad();
-        parent._tree->addLeft(std::shared_ptr<Aad>(this));
-        parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
-        //parent._tree->addLeft(*this);
-        //parent._tree->addRight(rhs);
+        //Aad parent = Aad();
+        //parent._tree->addLeft(std::shared_ptr<Aad>(this));
+        //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+        ////parent._tree->addLeft(*this);
+        ////parent._tree->addRight(rhs);
 
-        parent._value = _value - rhs._value;
-        parent._derivative = _derivative - rhs._derivative;
+        //parent._value = _value - rhs._value;
+        //parent._derivative = _derivative - rhs._derivative;
 
-        return parent;
+        //return parent;
+
+        *this -= rhs;
+        return *this;
     }
 
     const Aad Aad::operator *(const Aad& rhs)
     {
         //std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
         //std::swap(tmp, _tree);
-        Aad parent = Aad();
-        parent._tree->addLeft(std::shared_ptr<Aad>(this));
-        parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
-        //parent._tree->addLeft(*this);
-        //parent._tree->addRight(rhs);
+        //Aad parent = Aad();
+        //parent._tree->addLeft(std::shared_ptr<Aad>(this));
+        //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+        ////parent._tree->addLeft(*this);
+        ////parent._tree->addRight(rhs);
 
-        parent._value = _value * rhs._value;
-        parent._derivative = _derivative * rhs._value + _value * rhs._derivative;
+        //parent._value = _value * rhs._value;
+        //parent._derivative = _derivative * rhs._value + _value * rhs._derivative;
 
-        return parent;
+        //return parent;
+        *this *= rhs;
+        return *this;
+
     }
 
     const Aad Aad::operator /(const Aad& rhs)
     {
-        Aad parent = Aad();
-        parent._tree->addLeft(std::shared_ptr<Aad>(this));
-        parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
-        //parent._tree->addLeft(*this);
-        //parent._tree->addRight(rhs);
+        //Aad parent = Aad();
+        //parent._tree->addLeft(std::shared_ptr<Aad>(this));
+        //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+        ////parent._tree->addLeft(*this);
+        ////parent._tree->addRight(rhs);
 
-        //const std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
-        //std::swap(tmp, rhs._tree);
-        parent._value = _value / rhs._value;
-        parent._derivative = (_derivative * rhs._value - _value * rhs._derivative) / (rhs._value * rhs._value);
+        ////const std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
+        ////std::swap(tmp, rhs._tree);
+        //parent._value = _value / rhs._value;
+        //parent._derivative = (_derivative * rhs._value - _value * rhs._derivative) / (rhs._value * rhs._value);
 
-        return parent;
+        //return parent;
+        *this /= rhs;
+        return *this;
     }
 
     const Aad& Aad::operator+=(const Aad& rhs)
