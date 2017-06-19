@@ -11,11 +11,11 @@ namespace ad
     }
 
     Aad::Aad(double x)
-        :_value(x)
+    :_value(x)
     {
     }
 
-    Aad::Aad(const Aad& other)
+    Aad::Aad(Aad& other)
     {
         _tree = other._tree;
         _value = other._value;
@@ -30,7 +30,7 @@ namespace ad
     }
 
     // operator equals
-    const Aad& Aad::operator =(const Aad& other)
+    Aad& Aad::operator =(const Aad& other)
     {
         std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
         std::swap(_tree, tmp);
@@ -41,7 +41,7 @@ namespace ad
         return *this;
     }
 
-    const Aad& Aad::operator =(Aad&& other)
+    Aad& Aad::operator =(Aad&& other)
     {
         std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
         std::swap(_tree, tmp);
@@ -52,7 +52,7 @@ namespace ad
     }
 
     // unary operators
-    const Aad Aad::operator +(const Aad& rhs)
+    Aad& Aad::operator +(const Aad& rhs)
     {
         //Aad parent = Aad();
         //parent._tree->addLeft(std::shared_ptr<Aad>(this));
@@ -70,7 +70,7 @@ namespace ad
         return *this;
     }
 
-    const Aad Aad::operator -(const Aad& rhs)
+    Aad& Aad::operator -(const Aad& rhs)
     {
         //Aad parent = Aad();
         //parent._tree->addLeft(std::shared_ptr<Aad>(this));
@@ -87,7 +87,7 @@ namespace ad
         return *this;
     }
 
-    const Aad Aad::operator *(const Aad& rhs)
+    Aad& Aad::operator *(const Aad& rhs)
     {
         //std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
         //std::swap(tmp, _tree);
@@ -106,7 +106,7 @@ namespace ad
 
     }
 
-    const Aad Aad::operator /(const Aad& rhs)
+    Aad& Aad::operator /(const Aad& rhs)
     {
         //Aad parent = Aad();
         //parent._tree->addLeft(std::shared_ptr<Aad>(this));
@@ -124,7 +124,7 @@ namespace ad
         return *this;
     }
 
-    const Aad& Aad::operator+=(const Aad& rhs)
+    Aad& Aad::operator+=(const Aad& rhs)
     {
         _value = _value + rhs._value;
         _derivative = _derivative + rhs._derivative;
@@ -132,7 +132,7 @@ namespace ad
         return *this;
     }
 
-    const Aad& Aad::operator-=(const Aad& rhs)
+    Aad& Aad::operator-=(const Aad& rhs)
     {
         _value = _value - rhs._value;
         _derivative = _derivative - rhs._derivative;
@@ -140,7 +140,7 @@ namespace ad
         return *this;
     }
 
-    const Aad& Aad::operator*=(const Aad& rhs)
+    Aad& Aad::operator*=(const Aad& rhs)
     {
         _value = _value * rhs._value;
         _derivative = _derivative * rhs._value + _value * rhs._derivative;
@@ -148,7 +148,7 @@ namespace ad
         return *this;
     }
 
-    const Aad& Aad::operator/=(const Aad& rhs)
+    Aad& Aad::operator/=(const Aad& rhs)
     {
         _value = _value / rhs._value;
         _derivative = (_derivative * rhs._value - _value * rhs._derivative) / (rhs._value * rhs._value);

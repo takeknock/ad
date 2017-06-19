@@ -13,23 +13,23 @@ namespace ad {
         // constructors
         EXPORT_API explicit Aad();
         EXPORT_API explicit Aad(double x);
-        EXPORT_API explicit Aad(const Aad& other);
-        EXPORT_API explicit Aad(Aad&& other);
+        EXPORT_API Aad(Aad& other);
+        EXPORT_API Aad(Aad&& other);
 
         // operator equals
-        EXPORT_API const Aad& operator =(const Aad& other);
-        EXPORT_API const Aad& operator =(Aad&& other);
+        EXPORT_API Aad& operator =(const Aad& other);
+        EXPORT_API Aad& operator =(Aad&& other);
 
         // unary operators
-        const Aad& operator+=(const Aad& rhs);
-        const Aad& operator-=(const Aad& rhs);
-        const Aad& operator*=(const Aad& rhs);
-        const Aad& operator/=(const Aad& rhs);
+        Aad& operator+=(const Aad& rhs);
+        Aad& operator-=(const Aad& rhs);
+        Aad& operator*=(const Aad& rhs);
+        Aad& operator/=(const Aad& rhs);
 
-        EXPORT_API const Aad operator +(const Aad& rhs);
-        EXPORT_API const Aad operator -(const Aad& rhs);
-        EXPORT_API const Aad operator *(const Aad& rhs);
-        EXPORT_API const Aad operator /(const Aad& rhs);
+        EXPORT_API Aad& operator +(const Aad& rhs);
+        EXPORT_API Aad& operator -(const Aad& rhs);
+        EXPORT_API Aad& operator *(const Aad& rhs);
+        EXPORT_API Aad& operator /(const Aad& rhs);
 
         // methods
         EXPORT_API const double value() const;
