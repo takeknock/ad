@@ -10,12 +10,12 @@ namespace ad {
     }
 
     ComputationalGraph::ComputationalGraph(
+        IOperator op,
         double value,
-        double derivative,
         std::shared_ptr<ComputationalGraph> left,
         std::shared_ptr<ComputationalGraph> right)
-    :_value(value),
-     _derivative(derivative),
+    :_op(op),
+     _value(value),
      _left(left),
      _right(right)
     {   

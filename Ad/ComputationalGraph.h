@@ -3,6 +3,7 @@
 #include <memory>
 
 #include "Ad/fwd.h"
+#include "Ad/operators.h"
 
 namespace ad
 {
@@ -10,8 +11,8 @@ namespace ad
     public:
         EXPORT_API ComputationalGraph();
         EXPORT_API ComputationalGraph(
+            IOperator op,
             double value,
-            double derivative,
             std::shared_ptr<ComputationalGraph> left,
             std::shared_ptr<ComputationalGraph> right);
         const double getDerivative(const Aad& from);
@@ -30,6 +31,7 @@ namespace ad
         std::shared_ptr<ComputationalGraph> getDfsp();
 
     private:
+        IOperator _op;
         std::shared_ptr<ComputationalGraph> _left;
         std::shared_ptr<ComputationalGraph> _right;
         std::shared_ptr<ComputationalGraph> _dfsp;
