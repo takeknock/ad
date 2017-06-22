@@ -1,20 +1,22 @@
 #pragma once
 
 #include <memory>
-
-#include "Ad/fwd.h"
-#include "Ad/operators.h"
+#include "Ad/Switch.h"
+#include "Ad/IOperator.h"
+#include "Ad/Aad.h"
 
 namespace ad
 {
     class ComputationalGraph {
     public:
         EXPORT_API ComputationalGraph();
+
         EXPORT_API ComputationalGraph(
-            IOperator op,
+            IOperator& op,
             double value,
             std::shared_ptr<ComputationalGraph> left,
             std::shared_ptr<ComputationalGraph> right);
+
         const double getDerivative(const Aad& from);
         //void addRight(const std::shared_ptr<Aad> child);
         //void addLeft(const std::shared_ptr<Aad> child);
@@ -31,7 +33,7 @@ namespace ad
         std::shared_ptr<ComputationalGraph> getDfsp();
 
     private:
-        IOperator _op;
+        IOperator &_op;
         std::shared_ptr<ComputationalGraph> _left;
         std::shared_ptr<ComputationalGraph> _right;
         std::shared_ptr<ComputationalGraph> _dfsp;

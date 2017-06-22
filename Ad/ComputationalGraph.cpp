@@ -1,8 +1,10 @@
 #include "ComputationalGraph.h"
+#include "Ad/binary_functor.h"
 
 namespace ad {
     ComputationalGraph::ComputationalGraph() 
-    :_value(0.0),
+    :_op(op_add()),
+     _value(0.0),
      _derivative(0.0),
      _right(std::shared_ptr<ComputationalGraph>()),
      _left(std::shared_ptr<ComputationalGraph>())
@@ -10,7 +12,7 @@ namespace ad {
     }
 
     ComputationalGraph::ComputationalGraph(
-        IOperator op,
+        IOperator& op,
         double value,
         std::shared_ptr<ComputationalGraph> left,
         std::shared_ptr<ComputationalGraph> right)

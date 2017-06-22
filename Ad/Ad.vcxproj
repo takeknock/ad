@@ -114,13 +114,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Aad.h" />
+    <ClInclude Include="binary_functor.h" />
     <ClInclude Include="ComputationalGraph.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="functions.h" />
     <ClInclude Include="fwd.h" />
     <ClInclude Include="INode.h" />
+    <ClInclude Include="IOperator.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="operators.h" />
+    <ClInclude Include="Switch.h" />
     <ClInclude Include="Variable.h" />
   </ItemGroup>
   <ItemGroup>

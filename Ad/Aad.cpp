@@ -8,12 +8,12 @@ namespace ad
 {
     // constructors
     Aad::Aad()
-    :_value(0.0), _derivative(0.0), _tree(std::shared_ptr<ComputationalGraph>())
+    : _value(0.0), _tree(std::shared_ptr<ComputationalGraph>())
     {
     }
 
     Aad::Aad(double value)
-    :_value(value), _derivative(0.0), _tree(std::shared_ptr<ComputationalGraph>())
+    :_value(value), _tree(std::shared_ptr<ComputationalGraph>())
     {
     }
 
@@ -26,14 +26,12 @@ namespace ad
     {
         _tree = other._tree;
         _value = other._value;
-        _derivative = other._derivative;
     }
 
     Aad::Aad(Aad&& other)
     {
         _tree = other._tree;
         _value = other._value;
-        _derivative = other._derivative;
     }
 
     // operator equals
@@ -43,7 +41,6 @@ namespace ad
         std::swap(_tree, tmp);
 
         _value = other._value;
-        _derivative = other._derivative;
 
         return *this;
     }
@@ -54,7 +51,6 @@ namespace ad
         std::swap(_tree, tmp);
 
         _value = other._value;
-        _derivative = other._derivative;
         return *this;
     }
 
@@ -223,7 +219,7 @@ namespace ad
         dfs(_tree);
         _tree->setDerivative(1.0);
         rdfs(_tree);
-        return _derivative;
+        return 0.0;
     }
 
     std::shared_ptr<ComputationalGraph> Aad::tree() const
