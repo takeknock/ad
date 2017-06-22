@@ -18,7 +18,7 @@ namespace ad
     }
 
     Aad::Aad(std::shared_ptr<ComputationalGraph> tree)
-    :_tree(tree)
+    :_tree(std::shared_ptr<ComputationalGraph>(tree))
     {
     }
 
@@ -59,157 +59,158 @@ namespace ad
     }
 
     // unary operators
-    Aad& Aad::operator +(const Aad& rhs)
-    {
-        //Aad parent = Aad();
-        //parent._tree->addLeft(std::shared_ptr<Aad>(this));
-        //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
-        //parent._tree->addLeft(*this);
-        //parent._tree->addRight(rhs);
+    //Aad& Aad::operator +(const Aad& rhs)
+    //{
+    //    //Aad parent = Aad();
+    //    //parent._tree->addLeft(std::shared_ptr<Aad>(this));
+    //    //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+    //    //parent._tree->addLeft(*this);
+    //    //parent._tree->addRight(rhs);
 
-        //parent._value = _value + rhs._value;
-        //parent._derivative = _derivative + rhs._derivative;
+    //    //parent._value = _value + rhs._value;
+    //    //parent._derivative = _derivative + rhs._derivative;
 
-        //_value = _value + rhs._value;
-        //_derivative = _derivative + rhs._derivative;
+    //    //_value = _value + rhs._value;
+    //    //_derivative = _derivative + rhs._derivative;
 
-        *this += rhs;
-        return *this;
-    }
+    //    *this += rhs;
+    //    return *this;
+    //}
 
-    Aad& Aad::operator -(const Aad& rhs)
-    {
-        //Aad parent = Aad();
-        //parent._tree->addLeft(std::shared_ptr<Aad>(this));
-        //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
-        ////parent._tree->addLeft(*this);
-        ////parent._tree->addRight(rhs);
+    //Aad& Aad::operator -(const Aad& rhs)
+    //{
+    //    //Aad parent = Aad();
+    //    //parent._tree->addLeft(std::shared_ptr<Aad>(this));
+    //    //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+    //    ////parent._tree->addLeft(*this);
+    //    ////parent._tree->addRight(rhs);
 
-        //parent._value = _value - rhs._value;
-        //parent._derivative = _derivative - rhs._derivative;
+    //    //parent._value = _value - rhs._value;
+    //    //parent._derivative = _derivative - rhs._derivative;
 
-        //return parent;
+    //    //return parent;
 
-        *this -= rhs;
-        return *this;
-    }
+    //    *this -= rhs;
+    //    return *this;
+    //}
 
-    Aad& Aad::operator *(const Aad& rhs)
-    {
-        //std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
-        //std::swap(tmp, _tree);
-        //Aad parent = Aad();
-        //parent._tree->addLeft(std::shared_ptr<Aad>(this));
-        //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
-        ////parent._tree->addLeft(*this);
-        ////parent._tree->addRight(rhs);
+    //Aad& Aad::operator *(const Aad& rhs)
+    //{
+    //    //std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*rhs._tree));
+    //    //std::swap(tmp, _tree);
+    //    //Aad parent = Aad();
+    //    //parent._tree->addLeft(std::shared_ptr<Aad>(this));
+    //    //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+    //    ////parent._tree->addLeft(*this);
+    //    ////parent._tree->addRight(rhs);
 
-        //parent._value = _value * rhs._value;
-        //parent._derivative = _derivative * rhs._value + _value * rhs._derivative;
+    //    //parent._value = _value * rhs._value;
+    //    //parent._derivative = _derivative * rhs._value + _value * rhs._derivative;
 
-        //return parent;
-        *this *= rhs;
-        return *this;
+    //    //return parent;
+    //    *this *= rhs;
+    //    return *this;
 
-    }
+    //}
 
-    Aad& Aad::operator /(const Aad& rhs)
-    {
-        //Aad parent = Aad();
-        //parent._tree->addLeft(std::shared_ptr<Aad>(this));
-        //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
-        ////parent._tree->addLeft(*this);
-        ////parent._tree->addRight(rhs);
+    //Aad& Aad::operator /(const Aad& rhs)
+    //{
+    //    //Aad parent = Aad();
+    //    //parent._tree->addLeft(std::shared_ptr<Aad>(this));
+    //    //parent._tree->addRight(std::shared_ptr<Aad>(const_cast<Aad*>(&rhs)));
+    //    ////parent._tree->addLeft(*this);
+    //    ////parent._tree->addRight(rhs);
 
-        ////const std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
-        ////std::swap(tmp, rhs._tree);
-        //parent._value = _value / rhs._value;
-        //parent._derivative = (_derivative * rhs._value - _value * rhs._derivative) / (rhs._value * rhs._value);
+    //    ////const std::shared_ptr<ComputationalGraph> tmp(new ComputationalGraph(*_tree));
+    //    ////std::swap(tmp, rhs._tree);
+    //    //parent._value = _value / rhs._value;
+    //    //parent._derivative = (_derivative * rhs._value - _value * rhs._derivative) / (rhs._value * rhs._value);
 
-        //return parent;
-        *this /= rhs;
-        return *this;
-    }
+    //    //return parent;
+    //    *this /= rhs;
+    //    return *this;
+    //}
 
-    Aad& Aad::operator+=(const Aad& rhs)
-    {
-        _value = _value + rhs._value;
-        _derivative = _derivative + rhs._derivative;
+    //Aad& Aad::operator+=(const Aad& rhs)
+    //{
+    //    *this._tree = rhs.get
+    //    _value = _value + rhs._value;
+    //    _derivative = _derivative + rhs._derivative;
 
-        return *this;
-    }
+    //    return *this;
+    //}
 
-    Aad& Aad::operator-=(const Aad& rhs)
-    {
-        _value = _value - rhs._value;
-        _derivative = _derivative - rhs._derivative;
+    //Aad& Aad::operator-=(const Aad& rhs)
+    //{
+    //    _value = _value - rhs._value;
+    //    _derivative = _derivative - rhs._derivative;
 
-        return *this;
-    }
+    //    return *this;
+    //}
 
-    Aad& Aad::operator*=(const Aad& rhs)
-    {
-        _value = _value * rhs._value;
-        _derivative = _derivative * rhs._value + _value * rhs._derivative;
+    //Aad& Aad::operator*=(const Aad& rhs)
+    //{
+    //    _value = _value * rhs._value;
+    //    _derivative = _derivative * rhs._value + _value * rhs._derivative;
 
-        return *this;
-    }
+    //    return *this;
+    //}
 
-    Aad& Aad::operator/=(const Aad& rhs)
-    {
-        _value = _value / rhs._value;
-        _derivative = (_derivative * rhs._value - _value * rhs._derivative) / (rhs._value * rhs._value);
+    //Aad& Aad::operator/=(const Aad& rhs)
+    //{
+    //    _value = _value / rhs._value;
+    //    _derivative = (_derivative * rhs._value - _value * rhs._derivative) / (rhs._value * rhs._value);
 
-        return *this;
-    }
+    //    return *this;
+    //}
 
-    // unary operators with double
-    Aad& Aad::operator+=(double x)
-    {
-        _value = _value + x;
-        return *this;
-    }
-    Aad& Aad::operator-=(double x)
-    {
-        _value = _value - x;
-        return *this;
-    }
+    //// unary operators with double
+    //Aad& Aad::operator+=(double x)
+    //{
+    //    _value = _value + x;
+    //    return *this;
+    //}
+    //Aad& Aad::operator-=(double x)
+    //{
+    //    _value = _value - x;
+    //    return *this;
+    //}
 
-    Aad& Aad::operator*=(double x)
-    {
-        _value = _value * x;
-        return *this;
-    }
+    //Aad& Aad::operator*=(double x)
+    //{
+    //    _value = _value * x;
+    //    return *this;
+    //}
 
-    Aad& Aad::operator/=(double x)
-    {
-        _value = _value - x;
-        return *this;
-    }
+    //Aad& Aad::operator/=(double x)
+    //{
+    //    _value = _value - x;
+    //    return *this;
+    //}
 
-    Aad& Aad::operator +(double x)
-    {
-        *this += x;
-        return *this;
-    }
+    //Aad& Aad::operator +(double x)
+    //{
+    //    *this += x;
+    //    return *this;
+    //}
 
-    Aad& Aad::operator -(double x)
-    {
-        *this -= x;
-        return *this;
-    }
+    //Aad& Aad::operator -(double x)
+    //{
+    //    *this -= x;
+    //    return *this;
+    //}
 
-    Aad& Aad::operator *(double x)
-    {
-        *this *= x;
-        return *this;
-    }
+    //Aad& Aad::operator *(double x)
+    //{
+    //    *this *= x;
+    //    return *this;
+    //}
 
-    Aad& Aad::operator /(double x)
-    {
-        *this /= x;
-        return *this;
-    }
+    //Aad& Aad::operator /(double x)
+    //{
+    //    *this /= x;
+    //    return *this;
+    //}
 
     // methods
     const double Aad::value() const
@@ -225,6 +226,18 @@ namespace ad
         return _derivative;
     }
 
+    std::shared_ptr<ComputationalGraph> Aad::tree() const
+    {
+        return _tree;
+    }
+
+    void Aad::diff()
+    {
+        dfs(_tree);
+
+    }
+
+    
 
 
 } // namespace ad
