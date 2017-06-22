@@ -31,6 +31,31 @@ namespace ad {
         _derivative = derivative;
     }
 
+    bool ComputationalGraph::isLeaf() 
+    {
+        return _left == nullptr && _right == nullptr;
+    }
+
+    std::shared_ptr<ComputationalGraph> ComputationalGraph::getLeft()
+    {
+        return _left;
+    }
+
+    std::shared_ptr<ComputationalGraph> ComputationalGraph::getRight()
+    {
+        return _right;
+    }
+
+    void ComputationalGraph::setDfsp(std::shared_ptr<ComputationalGraph> p)
+    {
+        _dfsp = p;
+    }
+
+    std::shared_ptr<ComputationalGraph> ComputationalGraph::getDfsp()
+    {
+        return _dfsp;
+    }
+
     //void ComputationalGraph::addRight(const std::shared_ptr<Aad> x)
     //{
     //    _right = x;
