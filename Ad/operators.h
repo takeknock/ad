@@ -18,7 +18,7 @@ namespace ad {
     inline Aad operator -(const Aad& lhs, const Aad& rhs)
     {
         std::shared_ptr<ComputationalGraph> ret(
-            new ComputationalGraph(op_add(), lhs.value() - rhs.value(), lhs.tree(), rhs.tree()));
+            new ComputationalGraph(op_sub(), lhs.value() - rhs.value(), lhs.tree(), rhs.tree()));
 
         return Aad(ret);
     }
@@ -26,7 +26,7 @@ namespace ad {
     inline Aad operator *(const Aad& lhs, const Aad& rhs)
     {
         std::shared_ptr<ComputationalGraph> ret(
-            new ComputationalGraph(op_add(), lhs.value() * rhs.value(), lhs.tree(), rhs.tree()));
+            new ComputationalGraph(op_mul(), lhs.value() * rhs.value(), lhs.tree(), rhs.tree()));
 
         return Aad(ret);
     }
@@ -34,29 +34,41 @@ namespace ad {
     inline Aad operator /(const Aad& lhs, const Aad& rhs)
     {
         std::shared_ptr<ComputationalGraph> ret(
-            new ComputationalGraph(op_add(), lhs.value() / rhs.value(), lhs.tree(), rhs.tree()));
+            new ComputationalGraph(op_div(), lhs.value() / rhs.value(), lhs.tree(), rhs.tree()));
 
         return Aad(ret);
     }
 
     inline Aad operator +(const Aad& lhs, double x)
     {
-        return lhs + x;
+        std::shared_ptr<ComputationalGraph> ret(
+            new ComputationalGraph(op_add(), lhs.value() + x, lhs.tree(), nullptr));
+
+        return Aad(ret);
     }
 
     inline Aad operator -(const Aad& lhs, double x)
     {
-        return lhs - x;
+        std::shared_ptr<ComputationalGraph> ret(
+            new ComputationalGraph(op_sub(), lhs.value() - x, lhs.tree(), nullptr));
+
+        return Aad(ret);
     }
 
     inline Aad operator *(const Aad& lhs, double x)
     {
-        return lhs * x;
+        std::shared_ptr<ComputationalGraph> ret(
+            new ComputationalGraph(op_mul(), lhs.value() * x, lhs.tree(), nullptr));
+
+        return Aad(ret);
     }
 
     inline Aad operator /(const Aad& lhs, double x)
     {
-        return lhs / x;
+        std::shared_ptr<ComputationalGraph> ret(
+            new ComputationalGraph(op_div(), lhs.value() / x, lhs.tree(), nullptr));
+
+        return Aad(ret);
     }
 
     inline Aad& operator+=(Aad& lhs, const Aad& rhs)
