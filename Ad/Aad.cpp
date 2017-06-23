@@ -230,6 +230,8 @@ namespace ad
     void Aad::diff()
     {
         dfs(_tree);
+        _tree->setDerivative(1.0);
+        rdfs(_tree);
 
     }
 
