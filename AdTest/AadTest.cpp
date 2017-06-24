@@ -1,15 +1,17 @@
 #include "AadTest.h"
-
+#include "Ad/operators.h"
 
 namespace adtest {
     TEST_F(AadTest, add_test) 
     {
-        ad::Aad x1(1.0);
+        const ad::Aad x1(1.0);
         const ad::Aad x2(2.0);
 
         ad::Aad y = x1 + x2;
+        //ad::Aad z = y + x2;
         double expected_value = 3.0;
-        
+        y.diff();
+        //z.diff(); // ‚Ü‚¾—Ž‚¿‚é
         // value
         EXPECT_DOUBLE_EQ(expected_value, y.value());
         // each partial derivatives
@@ -20,7 +22,7 @@ namespace adtest {
     TEST_F(AadTest, sub_test) 
     {
         const ad::Aad x1(1.0);
-        ad::Aad x2(2.0);
+        const ad::Aad x2(2.0);
 
         ad::Aad y = x2 - x1;
         double expected_value = 1.0;
@@ -34,10 +36,10 @@ namespace adtest {
 
     TEST_F(AadTest, mul_test) 
     {
-        ad::Aad x1(3.0);
+        const ad::Aad x1(3.0);
         const ad::Aad x2(2.0);
 
-        const ad::Aad y = x1 * x2;
+        ad::Aad y = x1 * x2;
         double expected_value = 6.0;
 
         // value
@@ -49,10 +51,10 @@ namespace adtest {
 
     TEST_F(AadTest, div_test) 
     {
-        ad::Aad x1(5.0);
+        const ad::Aad x1(5.0);
         const ad::Aad x2(2.0);
 
-        const ad::Aad y = x1 / x2;
+        ad::Aad y = x1 / x2;
         double expected_value = 2.5;
 
         // value
@@ -64,10 +66,10 @@ namespace adtest {
 
     TEST_F(AadTest, add_test_with_double) 
     {
-        ad::Aad x1(5.0);
-        double x2 = 2.0;
+        const ad::Aad x1(5.0);
+        const double x2 = 2.0;
 
-        const ad::Aad y = x1 + x2;
+        ad::Aad y = x1 + x2;
         double expected_value = 7.0;
 
         // value

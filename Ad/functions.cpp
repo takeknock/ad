@@ -26,12 +26,12 @@ namespace ad {
                 dfs(q->getRight());
             }
         }
-
-
     }
+
     void rdfs(std::shared_ptr<ComputationalGraph> tree)
     {
-
+        tree->setDfsp(nullptr);
+        tree.setDerivative(tree.getOperator().diff());
     }
 
 } // namespace ad

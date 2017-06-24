@@ -44,6 +44,7 @@ int main(int argc, char **argv) {
     //tree.setup();
     //const double derivative = tree.getDerivative(x);
 
+
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 
