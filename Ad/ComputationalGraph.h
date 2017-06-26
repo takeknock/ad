@@ -31,7 +31,8 @@ namespace ad
         
         void setDfsp(std::shared_ptr<ComputationalGraph> p);
         std::shared_ptr<ComputationalGraph> getDfsp();
-
+        void diff();
+            
     private:
         IOperator &_op;
         std::shared_ptr<ComputationalGraph> _left;

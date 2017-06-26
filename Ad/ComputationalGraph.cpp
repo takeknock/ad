@@ -58,6 +58,13 @@ namespace ad {
         return _dfsp;
     }
 
+    void ComputationalGraph::diff()
+    {
+        // opの内容に従って、子のComputationalTreeに値をセットする。
+        _op.diff(std::shared_ptr<ComputationalGraph>(this), _left, _right);
+
+    }
+
     //void ComputationalGraph::addRight(const std::shared_ptr<Aad> x)
     //{
     //    _right = x;
