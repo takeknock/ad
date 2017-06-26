@@ -6,7 +6,10 @@ namespace ad {
         std::shared_ptr<ComputationalGraph> left, 
         std::shared_ptr<ComputationalGraph> right)
     {
-
+        double nextLeft = left->getLeft()->getDerivative() + parent->getDerivative();
+        left->getLeft()->setDerivative(nextLeft);
+        double nextRight = right->getRight()->getDerivative() + parent->getDerivative();
+        right->getRight()->setDerivative(nextRight);
     }
 
     void op_sub::diff(
