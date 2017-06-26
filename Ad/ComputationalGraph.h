@@ -34,6 +34,7 @@ namespace ad
         void diff();
         
         const double getDerivative() const;
+        const double getValue() const;
 
     private:
         IOperator &_op;

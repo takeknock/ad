@@ -28,9 +28,9 @@ namespace ad {
         std::shared_ptr<ComputationalGraph> left,
         std::shared_ptr<ComputationalGraph> right)
     {
-        double nextLeft = left->getLeft()->getDerivative() - parent->getDerivative();
+        double nextLeft = left->getLeft()->getDerivative() + parent->getDerivative() * right->getValue();
         left->getLeft()->setDerivative(nextLeft);
-        double nextRight = right->getRight()->getDerivative() - parent->getDerivative();
+        double nextRight = right->getRight()->getDerivative() + parent->getDerivative() * left.getValue();
         right->getRight()->setDerivative(nextRight);
     }
 
