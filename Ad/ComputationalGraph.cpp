@@ -23,6 +23,11 @@ namespace ad {
     {   
     }
 
+    const double ComputationalGraph::getDerivative() const
+    {
+        return _derivative;
+    }
+
     const double ComputationalGraph::getDerivative(const Aad& from)
     {
         return 0.0;
