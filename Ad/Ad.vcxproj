@@ -128,9 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Aad.cpp" />
+    <ClCompile Include="binary_functor.cpp" />
     <ClCompile Include="ComputationalGraph.cpp" />
     <ClCompile Include="functions.cpp" />
-    <ClCompile Include="operators.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
