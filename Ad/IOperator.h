@@ -7,12 +7,14 @@
 namespace ad {
     class IOperator {
     public:
-        EXPORT_API virtual void diff(
+        virtual void diff(
             std::shared_ptr<ComputationalGraph> parent,
             std::shared_ptr<ComputationalGraph> left,
-            std::shared_ptr<ComputationalGraph> right) = 0;
+            std::shared_ptr<ComputationalGraph> right)
+        {
 
-        virtual ~IOperator() {};
+        }
+
     };
 
 }

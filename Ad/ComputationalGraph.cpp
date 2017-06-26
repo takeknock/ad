@@ -1,3 +1,5 @@
+#include <typeinfo.h>
+
 #include "ComputationalGraph.h"
 #include "Ad/binary_functor.h"
 
@@ -45,7 +47,7 @@ namespace ad {
 
     bool ComputationalGraph::isLeaf() 
     {
-        return _left == nullptr && _right == nullptr;
+        return typeid(_op) == typeid(op_nop);
     }
 
     std::shared_ptr<ComputationalGraph> ComputationalGraph::getLeft()

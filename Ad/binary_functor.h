@@ -11,6 +11,8 @@ namespace ad {
             std::shared_ptr<ComputationalGraph> parent,
             std::shared_ptr<ComputationalGraph> left,
             std::shared_ptr<ComputationalGraph> right);
+
+        //EXPORT_API ~op_add() {};
     };
     class op_sub : public IOperator {
     public:
@@ -18,6 +20,8 @@ namespace ad {
             std::shared_ptr<ComputationalGraph> parent,
             std::shared_ptr<ComputationalGraph> left,
             std::shared_ptr<ComputationalGraph> right);
+        //EXPORT_API ~op_sub() {};
+
     };
     class op_mul : public IOperator {
     public:
@@ -25,6 +29,7 @@ namespace ad {
             std::shared_ptr<ComputationalGraph> parent,
             std::shared_ptr<ComputationalGraph> left,
             std::shared_ptr<ComputationalGraph> right);
+        //EXPORT_API ~op_mul() {};
     };
     class op_div : public IOperator {
     public:
@@ -32,6 +37,7 @@ namespace ad {
             std::shared_ptr<ComputationalGraph> parent,
             std::shared_ptr<ComputationalGraph> left,
             std::shared_ptr<ComputationalGraph> right);
+        //EXPORT_API ~op_div() {};
     };
 
 }

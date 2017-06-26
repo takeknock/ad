@@ -32,7 +32,14 @@ namespace ad {
     {
         tree->setDfsp(nullptr);
         tree->diff();
-
+        if (tree->getLeft() != nullptr)
+        {
+            rdfs(tree->getLeft());
+        }
+        if (tree->getRight() != nullptr)
+        {
+            rdfs(tree->getRight());
+        }
     }
 
 //    void rdfs(std::shared_ptr<ComputationalGraph> tree)

@@ -4,6 +4,7 @@
 #include "Ad/Switch.h"
 #include "Ad/IOperator.h"
 #include "Ad/Aad.h"
+#include "Ad/op_nop.h"
 
 namespace ad
 {
@@ -31,13 +32,14 @@ namespace ad
         
         void setDfsp(std::shared_ptr<ComputationalGraph> p);
         std::shared_ptr<ComputationalGraph> getDfsp();
-        void diff();
+        EXPORT_API void diff();
         
         const double getDerivative() const;
         const double getValue() const;
+        //EXPORT_API virtual ~ComputationalGraph() {  };
 
     private:
-        IOperator &_op;
+        IOperator _op = op_nop();
         std::shared_ptr<ComputationalGraph> _left;
         std::shared_ptr<ComputationalGraph> _right;
         std::shared_ptr<ComputationalGraph> _dfsp;

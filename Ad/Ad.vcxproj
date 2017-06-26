@@ -123,6 +123,7 @@
     <ClInclude Include="IOperator.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="operators.h" />
+    <ClInclude Include="op_nop.h" />
     <ClInclude Include="Switch.h" />
     <ClInclude Include="Variable.h" />
   </ItemGroup>
