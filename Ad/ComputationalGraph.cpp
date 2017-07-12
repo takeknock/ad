@@ -8,8 +8,8 @@ namespace ad {
     :_op(op_add()),
      _value(0.0),
      _derivative(0.0),
-     _right(std::shared_ptr<ComputationalGraph>()),
-     _left(std::shared_ptr<ComputationalGraph>())
+     _right(nullptr),
+     _left(nullptr)
     {
     }
 
