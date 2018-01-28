@@ -117,6 +117,7 @@
     <ClInclude Include="binary_functor.h" />
     <ClInclude Include="ComputationalGraph.h" />
     <ClInclude Include="Constant.h" />
+    <ClInclude Include="expression_template\operators.h" />
     <ClInclude Include="functions.h" />
     <ClInclude Include="fwd.h" />
     <ClInclude Include="INode.h" />
