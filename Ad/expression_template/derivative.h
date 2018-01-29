@@ -3,7 +3,7 @@
 #include "binary_expressions.h"
 #include "Constant.h"
 #include "Variable.h"
-#include "fanctors.h"
+#include "functors.h"
 
 namespace et {
     auto derivative(const Variable& e)
@@ -11,6 +11,14 @@ namespace et {
         return one();
     }
     auto derivative(const double e)
+    {
+        return zero();
+    }
+    auto derivative(const one& e)
+    {
+        return zero();
+    }
+    auto derivative(const zero& e)
     {
         return zero();
     }

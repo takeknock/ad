@@ -4,6 +4,11 @@ namespace et {
     public:
         one()
         {}
+        static double eval()
+        {
+            return 1.0;
+        }
+
         //one(const one& other);
         //one(one&& other);
         //one& operator =(const one& other);
@@ -13,6 +18,11 @@ namespace et {
     public:
         zero()
         {}
+
+        static double eval()
+        {
+            return 0.0;
+        }
         //zero(const zero& other);
         //zero(zero&& other);
         //zero& operator =(const zero& other);

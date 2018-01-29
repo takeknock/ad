@@ -2,11 +2,12 @@
 
 #include "Ad/Aad.h"
 #include "Ad/expression_template/operators.h"
-#include "Ad/expression_template/fanctors.h"
+#include "Ad/expression_template/functors.h"
 #include "Ad/expression_template/binary_expressions.h"
 #include "Ad/expression_template/Variable.h"
 #include "Ad/expression_template/Constant.h"
 #include "Ad/expression_template/derivative.h"
+#include "Ad/expression_template/eval.h"
 
 int main(int argc, char **argv) {
     //ad::ComputationalGraph tree = ad::ComputationalGraph();
@@ -62,10 +63,11 @@ int main(int argc, char **argv) {
     //std::cout << typeid(z).name() << std::endl;
 
     auto x = et::Variable(1.0);
-    auto y = x + 2.0;
+    auto y = x * x + 2.0 * x;
     auto dydx = et::derivative(y);
 
     std::cout << typeid(dydx).name() << std::endl;
+    std::cout << et::eval(dydx) << std::endl;
 
     int aa;
     std::cin >> aa;

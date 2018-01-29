@@ -20,6 +20,11 @@ namespace et {
         {
             return _e;
         }
+        
+        double eval() const
+        {
+            return get();
+        }
 
     private:
         const double _e;
