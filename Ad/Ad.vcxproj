@@ -117,7 +117,13 @@
     <ClInclude Include="binary_functor.h" />
     <ClInclude Include="ComputationalGraph.h" />
     <ClInclude Include="Constant.h" />
+    <ClInclude Include="expression_template\binary_expressions.h" />
+    <ClInclude Include="expression_template\Constant.h" />
+    <ClInclude Include="expression_template\derivative.h" />
+    <ClInclude Include="expression_template\fanctors.h" />
+    <ClInclude Include="expression_template\oldtestoperators.h" />
     <ClInclude Include="expression_template\operators.h" />
+    <ClInclude Include="expression_template\Variable.h" />
     <ClInclude Include="functions.h" />
     <ClInclude Include="fwd.h" />
     <ClInclude Include="INode.h" />

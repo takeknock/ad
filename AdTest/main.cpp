@@ -2,6 +2,11 @@
 
 #include "Ad/Aad.h"
 #include "Ad/expression_template/operators.h"
+#include "Ad/expression_template/fanctors.h"
+#include "Ad/expression_template/binary_expressions.h"
+#include "Ad/expression_template/Variable.h"
+#include "Ad/expression_template/Constant.h"
+#include "Ad/expression_template/derivative.h"
 
 int main(int argc, char **argv) {
     //ad::ComputationalGraph tree = ad::ComputationalGraph();
@@ -49,26 +54,21 @@ int main(int argc, char **argv) {
     //::testing::InitGoogleTest(&argc, argv);
     //return RUN_ALL_TESTS();
 
-    double a_data[] = { 2,3,5,9 };
-    double b_data[] = { 1,0,0,1 };
-    double c_data[] = { 3,0,2,5 };
-    double d_data[4];
+    //et::Variable a(1);
+    //et::Variable b(2);
+    //et::Variable c(3);
 
-    Array A(a_data, 4);
-    Array B(b_data, 4);
-    Array C(c_data, 4);
-    Array D(d_data, 4);
-    D = A + B + C;
+    //auto z = c * (a + b);
+    //std::cout << typeid(z).name() << std::endl;
 
-    std::cout << typeid(A).name() << std::endl;
-    std::cout << typeid(B).name() << std::endl;
-    std::cout << typeid(C).name() << std::endl;
-    std::cout << typeid(D).name() << std::endl;
+    auto x = et::Variable(1.0);
+    auto y = x + 2.0;
+    auto dydx = et::derivative(y);
 
-    for (std::size_t i = 0; i < 4; ++i) {
-        std::cout << D[i] << std::endl;
-    }
-    int a;
-    std::cin >> a;
+    std::cout << typeid(dydx).name() << std::endl;
+
+    int aa;
+    std::cin >> aa;
+
     return 0;
 }
