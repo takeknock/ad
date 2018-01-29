@@ -1,6 +1,7 @@
 #pragma once
 #include "fanctors.h"
 #include "binary_expressions.h"
+#include "Constant.h"
 
 namespace et {
     template<typename E1, typename E2>
@@ -27,6 +28,41 @@ namespace et {
         return binary_expression<div_op, E1, E2>(x, y);
     }
 
+    template<typename E>
+    auto operator +(const E& e, const zero& x)
+    {
+        return e;
+    }
+
+    template<typename E>
+    auto operator +(const zero& x, const E& e)
+    {
+        return e;
+    }
+
+    template<typename E>
+    auto operator *(const E& e, const zero& x)
+    {
+        return x;
+    }
+
+    template<typename E>
+    auto operator *(const zero& x, const E& e)
+    {
+        return x;
+    }
+
+    template<typename E>
+    auto operator *(const E& e, const one& x)
+    {
+        return e;
+    }
+
+    template<typename E>
+    auto operator *(const one& x, const E& e)
+    {
+        return e;
+    }
 }// namespace et {
 
 
