@@ -7,6 +7,18 @@
 #include "Ad/expression_template/Variable.h"
 #include "Ad/expression_template/Constant.h"
 #include "Ad/expression_template/manager.h"
+#include "Ad/ReverseAd.h"
+
+ad::ReverseAd toVariable(const double x)
+{
+    return ad::ReverseAd(x);
+}
+
+ad::ReverseAd toDerivative(const ad::ReverseAd& y)
+{
+    // return inDirectionOf interface object.
+    return y;
+}
 
 int main(int argc, char **argv) {
     //ad::ComputationalGraph tree = ad::ComputationalGraph();
@@ -61,20 +73,27 @@ int main(int argc, char **argv) {
     //auto z = c * (a + b);
     //std::cout << typeid(z).name() << std::endl;
 
-    ;
-    auto x = et::Variable(1.0);
-    auto y = x * x + 2.0 * x;
-    auto dydx = et::manager::derivative(y);
+    
+    //auto x = et::Variable(1.0);
+    //auto y = x * x + 2.0 * x;
+    //auto dydx = et::manager::derivative(y);
 
-    std::cout << typeid(dydx).name() << std::endl;
-    std::cout << et::eval(dydx) << std::endl;
-    auto dzdy_dydx = et::derivative(dydx);
+    //std::cout << typeid(dydx).name() << std::endl;
+    //std::cout << et::eval(dydx) << std::endl;
+    //auto dzdy_dydx = et::derivative(dydx);
 
-    std::cout << typeid(dzdy_dydx).name() << std::endl;
-    std::cout << et::eval(dzdy_dydx) << std::endl;
+    //std::cout << typeid(dzdy_dydx).name() << std::endl;
+    //std::cout << et::eval(dzdy_dydx) << std::endl;
 
-    int aa;
-    std::cin >> aa;
+    const double coefficient = 2.0;
+    auto x = toVariable(5.0);
+
+    auto y = mult(coefficient, x);
+    auto dy = toDerivative(y);
+    auto dydx = dy.inTheDirectionOf(x);
+
+    int a;
+    std::cin >> a;
 
     return 0;
 }
